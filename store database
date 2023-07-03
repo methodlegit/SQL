@@ -1,0 +1,23 @@
+
+--create store database
+
+create table inventory (id integer primary key, name text, quantity integer, price integer, online text);
+insert into inventory values 
+(1, 'sneakers', 33, 50, 'yes'),
+(2, 'heels', 58, 35, 'yes'),
+(3, 'sandals', 25, 20, 'no'),
+(4, 'shorts', 40, 17, 'yes'),
+(5, 'skirts', 20, 15, 'no'),
+(6, 'skorts', 15, 25, 'no'),
+(7, 'mini skirts', 15, 22, 'yes'),
+(8, 'leggings', 28, 25,'yes'),
+(9, 'jeans', 30, 25, 'yes'),
+(10, 'dress pants', 15, 35, 'yes'),
+(11, 'yoga pants', 8, 28, 'no'),
+(12, 'tank top', 10, 12, 'no'),
+(13, 'blouse', 8, 26, 'yes'),
+(14, 't-shirt', 25, 15, 'yes'),
+(15, 'jacket', 12, 38, 'yes');
+
+--list products from low to high costs
+select * from inventory order by price;
