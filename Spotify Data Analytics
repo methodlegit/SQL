@@ -1,0 +1,34 @@
+#These are some queries that are answering questions from Spotify top 50 songs datasheet. 
+
+#This is the data 
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness decimal(8,7) NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL );
+
+#1. Who are the top 5 artists based on their average popularity?
+SELECT avg(popularity) as AvgPopularity, artist_name 
+FROM BIT_DB.Spotifydata 
+GROUP BY artist_name  
+ORDER BY AvgPopularity desc LIMIT 5;
+
+#2. What is the longest song and who is the artist?
+SELECT artist_name, track_name, duration_ms as time FROM BIT_DB.Spotifydata ORDER BY time desc LIMIT 1;
+
+#3. What song has the highest danceability and energy?
+SELECT track_name, danceability, energy FROM BIT_DB.Spotifydata ORDER BY danceability desc, energy desc LIMIT 1;
